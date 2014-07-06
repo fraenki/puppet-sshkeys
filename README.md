@@ -11,6 +11,7 @@ Puppet module to manage ssh public keys.
   * [sshkeys](#sshkeys)
   * [sshkeys::user](#sshkeysuser)
   * [sshkeys::key](#sshkeyskey)
+* [Contributing](#contributing)
 * [License and copyright](#license-and-copyright)
 
 Introduction
@@ -178,6 +179,11 @@ sshkeys::keys:
   }
 ```
 
+Contributing
+============
+
+Please use [GitHub Pull requests][github_pullreq] for this.
+
 License and copyright
 =====================
 Copyright 2014 Artem Sidorenko and contributors.
@@ -192,3 +198,4 @@ and at https://github.com/artem-sidorenko/puppet-sshkeys/blob/master/COPYRIGHT
 [puppet_sshkey]: http://docs.puppetlabs.com/references/latest/type.html#sshauthorizedkey
 [puppet_relnotes]: http://docs.puppetlabs.com/puppet/latest/reference/release_notes.html#feature-purging-unmanaged-ssh-authorized-keys
 [puppet_stdlib]: https://forge.puppetlabs.com/puppetlabs/stdlib
+[github_pullreq]: https://help.github.com/articles/using-pull-requests
