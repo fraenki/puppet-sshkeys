@@ -1,0 +1,83 @@
+{
+  "name": "sidorenko-sshkeys",
+  "version": "0.9.0",
+  "author": "sidorenko",
+  "summary": "Puppet module to manage ssh public keys",
+  "license": "Apache 2.0",
+  "source": "https://github.com/artem-sidorenko/puppet-sshkeys/",
+  "project_page": "https://github.com/artem-sidorenko/puppet-sshkeys/",
+  "issues_url": "https://github.com/artem-sidorenko/puppet-sshkeys/issues",
+  "tags": ["ssh","openssh","ubuntu","debian","gentoo","freebsd","security","server","fedora"],
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_range": ">= 1.0.0"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "OracleLinux",
+      "operatingsystemrelease": [
+        "5",
+        "6"
+      ]
+    },
+    {
+      "operatingsystem": "Scientific",
+      "operatingsystemrelease": [
+        "5",
+        "6"
+      ]
+    },
+    {
+      "operatingsystem": "SLES",
+      "operatingsystemrelease": [
+        "11 SP1"
+      ]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "10.04",
+        "12.04",
+        "14.04"
+      ]
+    },
+    {
+      "operatingsystem": "LinuxMint",
+      "operatingsystemrelease": [
+        "17"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": "3.6"
+    }
+  ]
+}
+
