@@ -30,6 +30,7 @@ Converts the input hash to the according sshkeys hash with uniq keys to have uni
     keys_hash = Hash[]
 
     input_hash.each { |x,val|
+      raise(Puppet::ParseError, "sshkeys_restruct_to_hash(): wrong structure of input hash") if !val['key'] or !val['type']
       keys_hash["#{x}_at_#{user}@#{host}"] = Hash[
         "key_name" => x,
 	"user"     => user,
