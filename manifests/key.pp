@@ -21,7 +21,10 @@ define sshkeys::key (
 
   if ( $key == 'UNSET' and $type == 'UNSET') {
     #hiera lookup in the key list if both key and type are not defined
-    $keys_hash = hiera_hash('sshkeys::keys')
+    $keys_hash = hiera_hash('sshkeys::keys',undef)
+    if ( !$keys_hash or !$keys_hash[$key_name] or !$keys_hash[$key_name]['key'] or !$keys_hash[$key_name]['type'] ) {
+      fail ( "cannot find the key ${key_name} for ${user}@${::fqdn} via hiera in the sshkeys::keys namespace" )
+    }
     $fin_key = $keys_hash[$key_name]['key']
     $fin_type = $keys_hash[$key_name]['type']
   } elsif ( $key != 'UNSET' and $type != 'UNSET' ) {
@@ -29,11 +32,6 @@ define sshkeys::key (
     $fin_type = $type
   } else {
     fail ( 'either key and type both should be defined or both should be absent')
-  }
-
-  #check if key is defined and fail if not
-  if ( !$fin_key or !$fin_type) {
-    fail ( "cannot find the key ${key_name} for ${user}@${::fqdn}" )
   }
 
   ssh_authorized_key { "${key_name}_at_${user}@${::fqdn}":
