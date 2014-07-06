@@ -30,6 +30,7 @@ Features
 Requirements
 ============
  - Puppet 3.6 because of [purge_ssh_keys][puppet_relnotes]
+ - [Puppetlabs Stdlib][puppet_stdlib]
 
 How to use it
 =============
@@ -190,3 +191,4 @@ and at https://github.com/artem-sidorenko/puppet-sshkeys/blob/master/COPYRIGHT
 [puppet_user]: http://docs.puppetlabs.com/references/latest/type.html#user
 [puppet_sshkey]: http://docs.puppetlabs.com/references/latest/type.html#sshauthorizedkey
 [puppet_relnotes]: http://docs.puppetlabs.com/puppet/latest/reference/release_notes.html#feature-purging-unmanaged-ssh-authorized-keys
+[puppet_stdlib]: https://forge.puppetlabs.com/puppetlabs/stdlib
