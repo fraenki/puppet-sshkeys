@@ -9,17 +9,17 @@
 # and at https://github.com/artem-sidorenko/puppet-sshkeys/blob/master/COPYRIGHT
 #
 define sshkeys::key (
-    $key_name = 'UNSET',
-    $key = 'UNSET',
-    $type = 'UNSET',
-    $user = 'UNSET',
+    $key_name = undef,
+    $key      = undef,
+    $type     = undef,
+    $user     = undef,
   ) {
 
-  if ( $user == 'UNSET' or $key_name == 'UNSET' ) {
+  if ( !$user or !$key_name ) {
     fail( 'user and key_name should be defined')
   }
 
-  if ( $key == 'UNSET' and $type == 'UNSET') {
+  if ( !$key and !$type ) {
     #hiera lookup in the key list if both key and type are not defined
     $keys_hash = hiera_hash('sshkeys::keys',undef)
     if ( !$keys_hash or !$keys_hash[$key_name] or !$keys_hash[$key_name]['key'] or !$keys_hash[$key_name]['type'] ) {
@@ -27,7 +27,7 @@ define sshkeys::key (
     }
     $fin_key = $keys_hash[$key_name]['key']
     $fin_type = $keys_hash[$key_name]['type']
-  } elsif ( $key != 'UNSET' and $type != 'UNSET' ) {
+  } elsif ( $key and $type ) {
     $fin_key = $key
     $fin_type = $type
   } else {
