@@ -66,7 +66,7 @@ define sshkeys::user (
       gid              => $gid,
     }
   } elsif ( !getparam(User[$user],'purge_ssh_keys') ) {
-    notify{"No keys will be purged for user $user as purge_ssh_keys is disabled":}
+    notify{"No keys will be purged for user ${user} as purge_ssh_keys is disabled":}
   }
 
   #do it only if the user is present
