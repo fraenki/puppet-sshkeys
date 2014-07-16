@@ -7,3 +7,8 @@ gem 'puppet', puppetversion
 gem 'puppet-lint'
 gem 'rspec-puppet'
 gem 'puppetlabs_spec_helper'
+
+#doesn't work on ruby 1.8 due to some dependency
+if RUBY_VERSION > '1.9.0'
+  gem 'coveralls', :require => false
+end
