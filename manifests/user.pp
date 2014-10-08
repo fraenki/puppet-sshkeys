@@ -8,24 +8,6 @@
 # See the COPYRIGHT file at the top-level directory of this distribution
 # and at https://github.com/artem-sidorenko/puppet-sshkeys/blob/master/COPYRIGHT
 #
-
-
-#
-#
-# $user = username
-#
-# $keys = {
-#   "key_name" => {
-#      key           => 'blabla',
-#      type          => 'ssh-rsa',
-#    },
-# }
-#
-# or
-#
-# $keys = ( 'artem@2realities.com', 'a.sidorenko@telekom.de')
-#
-
 define sshkeys::user (
     $ensure           = present,
     $keys             = [],
