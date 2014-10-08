@@ -3,7 +3,6 @@ puppet-sshkeys
 Puppet module to manage ssh public keys.
 
 [![Build Status](https://travis-ci.org/artem-sidorenko/puppet-sshkeys.svg?branch=master)](https://travis-ci.org/artem-sidorenko/puppet-sshkeys)
-[![Coverage Status](https://coveralls.io/repos/artem-sidorenko/puppet-sshkeys/badge.png?branch=master)](https://coveralls.io/r/artem-sidorenko/puppet-sshkeys?branch=master)
 
 * [Introduction](#introduction)
 * [Features](#features)

@@ -1,9 +1,3 @@
-#coveralls doesn't work on ruby 1.8 due to some deps
-if RUBY_VERSION > '1.9.0'
-  require 'coveralls'
-  Coveralls.wear!
-end
-
 require 'rspec-puppet'
 
 require 'puppetlabs_spec_helper/puppetlabs_spec_helper'
