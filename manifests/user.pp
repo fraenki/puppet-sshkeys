@@ -28,7 +28,7 @@ define sshkeys::user (
   $user = $title
 
   if ( ! defined(User[$user]) ) {
-    if ( !$home ) {
+    if ( !$home and $ensure!='absent' ) {
       fail( 'home should be defined to allow ssh key management' )
     }
     user { $user:

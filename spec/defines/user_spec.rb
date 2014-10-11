@@ -98,5 +98,18 @@ describe 'sshkeys::user' do
     end
   end
 
+  context 'absent user' do
+    let(:params) {{
+      :ensure => 'absent',
+    }}
+
+    it do
+      should contain_user('sometestuser').with({
+        'ensure'         => 'absent',
+      })
+      should have_ssh_authorized_keys_resource_count(0)
+    end
+  end
+
 
 end
