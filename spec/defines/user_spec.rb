@@ -83,4 +83,20 @@ describe 'sshkeys::user' do
     end
   end
 
+  context 'no keys defined' do
+    let(:params) {{
+      :home => '/home/sometestuser',
+    }}
+
+    it do
+      should contain_user('sometestuser').with({
+        'ensure'         => 'present',
+        'home'           => '/home/sometestuser',
+        'purge_ssh_keys' => true,
+      })
+      should have_ssh_authorized_keys_resource_count(0)
+    end
+  end
+
+
 end
