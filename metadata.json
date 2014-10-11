@@ -1,6 +1,6 @@
 {
   "name": "sidorenko-sshkeys",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "author": "sidorenko",
   "summary": "Puppet module to manage ssh public keys",
   "license": "Apache 2.0",
