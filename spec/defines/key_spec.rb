@@ -23,9 +23,7 @@ describe 'sshkeys::key' do
 
   context 'no parameters are defined' do
     it do 
-      expect { 
-        should compile 
-      }.to raise_error(Puppet::Error, /user and key_name should be defined/)
+      raise_error(Puppet::Error, /user and key_name should be defined/)
     end
   end
 
@@ -54,9 +52,7 @@ describe 'sshkeys::key' do
     }}
 
     it do
-      expect {
-        should compile
-      }.to raise_error(Puppet::Error, /cannot find the key non-existing-key for sometestuser@some.fqdn.without-hiera-data via hiera in the sshkeys::keys namespace/)
+      raise_error(Puppet::Error, /cannot find the key non-existing-key for sometestuser@some.fqdn.without-hiera-data via hiera in the sshkeys::keys namespace/)
     end
   end
 
@@ -66,9 +62,7 @@ describe 'sshkeys::key' do
       :user     => 'sometestuser',
     }}
     it do
-      expect {
-        should compile
-      }.to raise_error(Puppet::Error, /cannot find the key non-existing-key for sometestuser@some.fqdn via hiera in the sshkeys::keys namespace/)
+      raise_error(Puppet::Error, /cannot find the key non-existing-key for sometestuser@some.fqdn via hiera in the sshkeys::keys namespace/)
     end
   end
 
@@ -79,9 +73,7 @@ describe 'sshkeys::key' do
       :key      => 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDJzdGydf2tdZYCkBRGx/SnlVKW+9q3Mqtf9vCrs0SaSkwDK4Q36hS40IVgmri2mjKeWFr5p92OgYY1hjZk4LLUAbVV8ItmPLqvmfrkOEwDCzmkbrUVa4BTKePWG0hOGAVYSQkS+1vhsTFhtznJMxsjRVwj8tO3s0fSnaXcovs9d4LwXhRbcDjzrAVRkk2d5/lSbjc/T4ZJ6oMKcGCxq02etJMoSBBQsEfRP/vULqKjoxJ96kb3Y43tU7gRzcVkXAyNqpXie8fD/FopoVi/uHIqkzotkOwztUYNt6C5LwV/W4ds5x3Zl7Jo4kqup2FOCs4oXSC3WxJI5FJ9WuPMtK1r',
     }}
     it do
-      expect {
-        should compile 
-      }.to raise_error(Puppet::Error, /either key and type both should be defined or both should be absent/)
+      raise_error(Puppet::Error, /either key and type both should be defined or both should be absent/)
     end
   end
 
@@ -92,9 +84,7 @@ describe 'sshkeys::key' do
       :type     => 'ssh-rsa',
     }}
     it do
-      expect {
-        should compile
-      }.to raise_error(Puppet::Error, /either key and type both should be defined or both should be absent/)
+      raise_error(Puppet::Error, /either key and type both should be defined or both should be absent/)
     end
   end
 

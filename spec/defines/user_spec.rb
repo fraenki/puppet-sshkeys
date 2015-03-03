@@ -6,9 +6,7 @@ describe 'sshkeys::user' do
 
   context 'home undefined' do
     it do
-      expect {
-        should compile
-      }.to raise_error(Puppet::Error, /home should be defined to allow ssh key management/)
+      raise_error(Puppet::Error, /home should be defined to allow ssh key management/)
     end
   end
 
@@ -77,9 +75,7 @@ describe 'sshkeys::user' do
     }}
 
     it do
-      expect {
-        should compile
-      }.to raise_error(Puppet::Error, /keys should be defined as array or hash/)
+      raise_error(Puppet::Error, /keys should be defined as array or hash/)
     end
   end
 
