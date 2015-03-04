@@ -23,6 +23,7 @@ define sshkeys::user (
     $system           = undef,
     $uid              = undef,
     $gid              = undef,
+    $fix_permissions  = true,
   ) {
 
   $user = $title
@@ -59,6 +60,28 @@ define sshkeys::user (
       $fin_keys = sshkeys_restruct_to_hash($keys,$user,$::fqdn)
     } else {
       fail ( 'keys should be defined as array or hash')
+    }
+
+    if ( $fix_permissions == true and $fin_keys != {} ) {
+      $home_param = getparam(User[$user],'home')
+      $gid_param  = getparam(User[$user],'gid')
+      if ( !$gid_param ) {
+        notify{"No permissions will be fixed for user ${user} as gid is not set":}
+      } else {
+        file { "fix permissions of ${home_param}/.ssh":
+          ensure => 'directory',
+          path   => "${home_param}/.ssh",
+          owner  => $user,
+          group  => $gid_param,
+          mode   => '0700'
+        }
+        file { "fix permissions of ${home_param}/.ssh/authorized_keys":
+          path  => "${home_param}/.ssh/authorized_keys",
+          owner => $user,
+          group => $gid_param,
+          mode  => '0600'
+        }
+      }
     }
 
     create_resources('sshkeys::key',$fin_keys)
