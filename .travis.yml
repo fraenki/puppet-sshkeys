@@ -6,6 +6,9 @@ env:
   - PUPPET_VERSION="~> 3.6.0"
   - PUPPET_VERSION="~> 3.7.0"
   - PUPPET_VERSION="~> 3.8.0"
+script:
+  - bundle exec rake rubocop
+  - bundle exec rake
 matrix:
   fast_finish: true
 sudo: false
