@@ -8,3 +8,4 @@ env:
 matrix:
   fast_finish: true
 gemfile: .gemfile
+sudo: false
