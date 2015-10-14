@@ -8,4 +8,6 @@ RSpec.configure do |c|
   c.module_path = File.join(fixture_path, 'modules')
   c.manifest_dir = File.join(fixture_path, 'manifests')
   c.hiera_config = File.join(fixture_path, 'hiera.yaml')
+  c.parser = 'future' if ENV['PARSER'] == 'future'
+  c.environmentpath = File.expand_path(File.join(Dir.pwd, 'spec')) if Puppet.version.to_f >= 4.0
 end
