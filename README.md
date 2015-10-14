@@ -30,7 +30,7 @@ Features
 
 Requirements
 ============
- - Puppet 3.6 because of [purge_ssh_keys][puppet_relnotes]
+ - Puppet >3.6 because of [purge_ssh_keys][puppet_relnotes]
  - [Puppetlabs Stdlib][puppet_stdlib]
 
 How to use it
