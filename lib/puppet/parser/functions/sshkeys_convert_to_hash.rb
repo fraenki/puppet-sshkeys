@@ -12,31 +12,33 @@
 #
 # sshkeys_convert_to_hash (array, user, host)
 #
-module Puppet::Parser::Functions
-  newfunction(:sshkeys_convert_to_hash, :type => :rvalue, :doc => <<-EOS
-Converts the input array to the according sshkeys hash
-  EOS
-  ) do |args|
+module Puppet
+  module Parser
+    module Functions # rubocop:disable Style/Documentation
+      newfunction(:sshkeys_convert_to_hash,
+                  type: :rvalue,
+                  doc: 'Converts the input array to the according sshkeys hash'
+                 ) do |args|
+        fail(Puppet::ParseError, 'sshkeys_convert_to_hash(): wrong number of arguments ' \
+          "given (#{args.size} for 1)") if args.size != 3
 
-    raise(Puppet::ParseError, "sshkeys_convert_to_hash(): wrong number of arguments " +
-      "given (#{args.size} for 1)") if args.size != 3
+        arr = args[0]
+        user = args[1]
+        host = args[2]
 
-    arr = args[0]
-    user = args[1]
-    host = args[2]
+        fail(Puppet::ParseError, 'sshkeys_convert_to_hash(): first argument should be an array') unless arr.is_a?(Array)
 
-    raise(Puppet::ParseError, "sshkeys_convert_to_hash(): first argument should be an array") if !arr.is_a?(Array)
+        keys_hash = Hash[]
 
-    keys_hash = Hash[]
+        arr.each do |x|
+          keys_hash["#{x}_at_#{user}@#{host}"] = Hash[
+            'key_name' => x,
+            'user'     => user,
+            ]
+        end
 
-    arr.each { |x|
-      keys_hash["#{x}_at_#{user}@#{host}"] = Hash[
-        "key_name" => x,
-	"user"     => user,
-        ]
-    }
-
-    return keys_hash
-
+        return keys_hash
+      end
+    end
   end
 end

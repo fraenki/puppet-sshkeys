@@ -12,34 +12,36 @@
 #
 # sshkeys_restruct_to_hash (hash,user,host)
 #
-module Puppet::Parser::Functions
-  newfunction(:sshkeys_restruct_to_hash, :type => :rvalue, :doc => <<-EOS
-Converts the input hash to the according sshkeys hash with uniq keys to have uniq defines
-  EOS
-  ) do |args|
+module Puppet
+  module Parser
+    module Functions # rubocop:disable Style/Documentation
+      newfunction(:sshkeys_restruct_to_hash,
+                  type: :rvalue,
+                  doc: 'Converts the input hash to the according sshkeys hash with uniq keys to have uniq defines'
+                 ) do |args|
+        fail(Puppet::ParseError, 'sshkeys_restruct_to_hash(): wrong number of arguments ' \
+          "given (#{args.size} for 1)") if args.size != 3
 
-    raise(Puppet::ParseError, "sshkeys_restruct_to_hash(): wrong number of arguments " +
-      "given (#{args.size} for 1)") if args.size != 3
+        input_hash = args[0]
+        user = args[1]
+        host = args[2]
 
-    input_hash = args[0]
-    user = args[1]
-    host = args[2]
+        fail(Puppet::ParseError, 'sshkeys_restruct_to_hash(): first argument should be a hash') unless input_hash.is_a?(Hash) # rubocop:disable Metrics/LineLength
 
-    raise(Puppet::ParseError, "sshkeys_restruct_to_hash(): first argument should be a hash") if !input_hash.is_a?(Hash)
+        keys_hash = Hash[]
 
-    keys_hash = Hash[]
+        input_hash.each do |x, val|
+          fail(Puppet::ParseError, 'sshkeys_restruct_to_hash(): wrong structure of input hash') if !val['key'] || !val['type'] # rubocop:disable Metrics/LineLength
+          keys_hash["#{x}_at_#{user}@#{host}"] = Hash[
+            'key_name' => x,
+            'user'     => user,
+            'key'      => val['key'],
+            'type'     => val['type'],
+            ]
+        end
 
-    input_hash.each { |x,val|
-      raise(Puppet::ParseError, "sshkeys_restruct_to_hash(): wrong structure of input hash") if !val['key'] or !val['type']
-      keys_hash["#{x}_at_#{user}@#{host}"] = Hash[
-        "key_name" => x,
-	"user"     => user,
-	"key"      => val['key'],
-	"type"     => val['type'],
-        ]
-    }
-
-    return keys_hash
-
+        return keys_hash
+      end
+    end
   end
 end
