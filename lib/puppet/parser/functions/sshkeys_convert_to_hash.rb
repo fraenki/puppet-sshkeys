@@ -19,14 +19,14 @@ module Puppet
                   type: :rvalue,
                   doc: 'Converts the input array to the according sshkeys hash'
                  ) do |args|
-        fail(Puppet::ParseError, 'sshkeys_convert_to_hash(): wrong number of arguments ' \
+        raise(Puppet::ParseError, 'sshkeys_convert_to_hash(): wrong number of arguments ' \
           "given (#{args.size} for 1)") if args.size != 3
 
         arr = args[0]
         user = args[1]
         host = args[2]
 
-        fail(Puppet::ParseError, 'sshkeys_convert_to_hash(): first argument should be an array') unless arr.is_a?(Array)
+        raise(Puppet::ParseError, 'sshkeys_convert_to_hash(): first argument should be an array') unless arr.is_a?(Array) # rubocop:disable Metrics/LineLength
 
         keys_hash = Hash[]
 
