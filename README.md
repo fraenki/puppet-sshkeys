@@ -1,3 +1,12 @@
+ATTENTION! New home of this module
+==================================
+
+Frank Wall is a new maintainer of this module:
+
+ - https://github.com/fraenki/puppet-sshkeys/
+ - https://github.com/fraenki/puppet-sshkeys/issues
+ - https://forge.puppet.com/fraenki/sshkeys
+
 puppet-sshkeys
 ==============
 Puppet module to manage ssh public keys.

@@ -1,12 +1,12 @@
 {
   "name": "sidorenko-sshkeys",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "author": "sidorenko",
   "summary": "Puppet module to manage ssh public keys",
   "license": "Apache 2.0",
-  "source": "https://github.com/artem-sidorenko/puppet-sshkeys/",
-  "project_page": "https://github.com/artem-sidorenko/puppet-sshkeys/",
-  "issues_url": "https://github.com/artem-sidorenko/puppet-sshkeys/issues",
+  "source": "https://github.com/fraenki/puppet-sshkeys/",
+  "project_page": "https://github.com/fraenki/puppet-sshkeys/",
+  "issues_url": "https://github.com/fraenki/puppet-sshkeys/issues",
   "tags": ["ssh","openssh","ubuntu","debian","gentoo","freebsd","security","server","fedora"],
   "dependencies": [
     {
