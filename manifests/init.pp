@@ -12,12 +12,12 @@ class sshkeys (
   $users = undef,
 ){
 
-  #hiera lookup
+  # hiera lookup
   $hiera_users = hiera_hash('sshkeys::users',undef)
 
   if $hiera_users == undef {
     $fin_users = $users
-  }else{
+  } else {
     $fin_users = $hiera_users
   }
 

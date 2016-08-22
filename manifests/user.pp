@@ -9,23 +9,22 @@
 # and at https://github.com/artem-sidorenko/puppet-sshkeys/blob/master/COPYRIGHT
 #
 define sshkeys::user (
-    $ensure           = present,
-    $keys             = [],
-    $home             = undef,
-    $comment          = undef,
-    $groups           = undef,
-    $password_min_age = undef,
-    $password_max_age = undef,
-    $password         = undef,
-    $expiry           = undef,
-    $managehome       = undef,
-    $shell            = undef,
-    $system           = undef,
-    $uid              = undef,
-    $gid              = undef,
-    $fix_permissions  = true,
-  ) {
-
+  $ensure           = present,
+  $keys             = [],
+  $home             = undef,
+  $comment          = undef,
+  $groups           = undef,
+  $password_min_age = undef,
+  $password_max_age = undef,
+  $password         = undef,
+  $expiry           = undef,
+  $managehome       = undef,
+  $shell            = undef,
+  $system           = undef,
+  $uid              = undef,
+  $gid              = undef,
+  $fix_permissions  = true,
+) {
   $user = $title
 
   if ( ! defined(User[$user]) ) {
@@ -65,7 +64,7 @@ define sshkeys::user (
     if ( $fix_permissions == true and $fin_keys != {} ) {
       $home_param = getparam(User[$user],'home')
       $gid_param  = getparam(User[$user],'gid')
-      if ( !$gid_param or $gid_param == "" ) {
+      if ( !$gid_param or $gid_param == '' ) {
         notify{"No permissions will be fixed for user ${user} as gid is not set":}
       } else {
         file { "fix permissions of ${home_param}/.ssh":
