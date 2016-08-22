@@ -10,4 +10,5 @@ gem 'rspec-puppet'
 gem 'puppetlabs_spec_helper'
 gem 'rubocop'
 # try to be compatible with ruby 1.9.3
+gem 'json', '< 2.0.0'
 gem 'json_pure', '< 2.0.0'
