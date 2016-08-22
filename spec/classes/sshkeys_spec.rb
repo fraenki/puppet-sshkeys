@@ -72,8 +72,7 @@ describe 'sshkeys' do
             }
           }
         }
-      }
-      }
+      } }
     end
 
     it do
