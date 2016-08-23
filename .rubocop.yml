@@ -2,4 +2,9 @@ Metrics/LineLength:
   Max: 120
 AllCops:
   Exclude:
-    - 'spec/fixtures/modules/**/*'
+    # Ignore HTML related things
+    - '**/*.erb'
+    # Ignore vendored gems
+    - 'vendor/**/*'
+    # Ignore code from test fixtures
+    - 'spec/fixtures/**/*'
