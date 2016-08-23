@@ -19,7 +19,7 @@ class sshkeys (
     $fin_users = $hiera_users
   }
 
-  if ($fin_users) {
+  if ($fin_users != undef) {
     create_resources('sshkeys::user',$fin_users)
   }
 }
