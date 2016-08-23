@@ -10,6 +10,7 @@
 define sshkeys::key (
   $key_name = undef,
   $key      = undef,
+  $options  = undef,
   $type     = undef,
   $user     = undef,
 ) {
@@ -25,17 +26,20 @@ define sshkeys::key (
     }
     $fin_key = $keys_hash[$key_name]['key']
     $fin_type = $keys_hash[$key_name]['type']
+    $fin_options = $keys_hash[$key_name]['options']
   } elsif ( $key and $type ) {
     $fin_key = $key
     $fin_type = $type
+    $fin_options = $options
   } else {
     fail ('either key and type both should be defined or both should be absent')
   }
 
   ssh_authorized_key { "${key_name}_at_${user}@${::fqdn}":
-    ensure => present,
-    user   => $user,
-    key    => $fin_key,
-    type   => $fin_type,
+    ensure  => present,
+    user    => $user,
+    key     => $fin_key,
+    options => $fin_options,
+    type    => $fin_type,
   }
 }

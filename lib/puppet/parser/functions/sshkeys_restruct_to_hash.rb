@@ -36,6 +36,7 @@ module Puppet
             'key_name' => x,
             'user'     => user,
             'key'      => val['key'],
+            'options'  => val['options'],
             'type'     => val['type'],
             ]
         end
