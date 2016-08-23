@@ -1,7 +1,7 @@
 require 'puppet-lint/tasks/puppet-lint'
 require 'puppetlabs_spec_helper/rake_tasks'
 
-if RUBY_VERSION >= '2.0.0'
+if RUBY_VERSION >= '2.3.0'
   require 'rubocop/rake_task'
 
   RuboCop::RakeTask.new
