@@ -26,5 +26,5 @@ desc 'Run tests validate, lint, spec'
 task test: [
   :validate,
   :lint,
-  :spec,
+  :spec
 ]
