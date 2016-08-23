@@ -186,11 +186,10 @@ Please use [GitHub Pull requests][github_pullreq] for this.
 
 License and copyright
 =====================
-Copyright 2014 Artem Sidorenko and contributors.
+Copyright (C) 2016 Frank Wall github@moov.de
+Copyright (C) 2014-2016 Artem Sidorenko artem@2realities.com and contributors
 
-See the COPYRIGHT file at the top-level directory of this distribution
-and at https://github.com/artem-sidorenko/puppet-sshkeys/blob/master/COPYRIGHT
-
+See the COPYRIGHT file at the top-level directory of this distribution.
 
 
 [erwbgy/ssh]: https://forge.puppetlabs.com/erwbgy/ssh

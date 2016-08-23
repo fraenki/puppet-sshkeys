@@ -2,11 +2,10 @@
 # sshkeys puppet module
 # https://github.com/artem-sidorenko/puppet-sshkeys
 #
-# Author Artem Sidorenko artem@2realities.com
+# Copyright (C) 2016 Frank Wall github@moov.de
+# Copyright (C) 2014-2016 Artem Sidorenko artem@2realities.com
 #
-# Copyright 2014 Artem Sidorenko and contributors.
-# See the COPYRIGHT file at the top-level directory of this distribution
-# and at https://github.com/artem-sidorenko/puppet-sshkeys/blob/master/COPYRIGHT
+# See the COPYRIGHT file at the top-level directory of this distribution.
 #
 define sshkeys::user (
   $ensure           = present,
