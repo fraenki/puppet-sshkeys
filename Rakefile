@@ -7,13 +7,24 @@ if RUBY_VERSION >= '2.0.0'
   RuboCop::RakeTask.new
 end
 
-PuppetLint.configuration.ignore_paths = ['vendor/**/*.pp']
+exclude_paths = %w(
+  pkg/**/*
+  vendor/**/*
+  .vendor/**/*
+  spec/**/*
+)
+PuppetLint.configuration.ignore_paths = exclude_paths
 PuppetLint.configuration.send('disable_80chars')
 PuppetLint.configuration.relative = true
 
-task default: [:validate, :lint, :spec]
-
-desc 'Populate CONTRIBUTORS file'
-task :contributors do
-  system("git log --format='%aN' | sort -u > CONTRIBUTORS")
+desc 'Run acceptance tests'
+RSpec::Core::RakeTask.new(:acceptance) do |t|
+  t.pattern = 'spec/acceptance'
 end
+
+desc 'Run tests validate, lint, spec'
+task test: [
+  :validate,
+  :lint,
+  :spec,
+]
