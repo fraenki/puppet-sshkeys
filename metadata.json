@@ -3,7 +3,7 @@
   "version": "0.9.3",
   "author": "Frank Wall",
   "summary": "Puppet module to manage SSH public keys",
-  "license": "Apache-2.0",
+  "license": "BSD-2-Clause",
   "source": "https://github.com/fraenki/puppet-sshkeys/",
   "project_page": "https://github.com/fraenki/puppet-sshkeys/",
   "issues_url": "https://github.com/fraenki/puppet-sshkeys/issues",
