@@ -1,6 +1,6 @@
 {
   "name": "fraenki-sshkeys",
-  "version": "0.9.1",
+  "version": "0.9.3",
   "author": "Frank Wall",
   "summary": "Puppet module to manage SSH public keys",
   "license": "Apache-2.0",
