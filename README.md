@@ -203,7 +203,7 @@ License and copyright
 Copyright (C) 2016 Frank Wall github@moov.de  
 Copyright (C) 2014-2016 Artem Sidorenko artem@2realities.com and contributors
 
-See the COPYRIGHT file at the top-level directory of this distribution.
+See the LICENSE file at the top-level directory of this distribution.
 
 
 [erwbgy/ssh]: https://forge.puppetlabs.com/erwbgy/ssh
